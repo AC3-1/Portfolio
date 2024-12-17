@@ -222,6 +222,12 @@
             }
           });
         });
+        const burgerIcon = document.querySelector(".fa-bars");
+        const headerLinks = document.querySelector(".header-links");
+
+        burgerIcon.addEventListener("click", function () {
+          headerLinks.classList.toggle("show");
+        });
       });
     </script>
   </body>

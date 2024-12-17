@@ -26,6 +26,11 @@ body {
     color: #484848;
   }
   
+  img, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
   .section {
     text-align: center;
     display: flex;
