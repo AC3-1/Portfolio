@@ -4,6 +4,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
+    background-color: #c1dfc7;
     font-family: "Playfair Display", sans-serif !important;
   }
   
@@ -27,6 +28,9 @@ body {
   
   .section {
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .skillbar {
@@ -124,8 +128,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("https://img.freepik.com/free-photo/top-view-desk-concept-with-laptop_23-2148236828.jpg?t=st=1733877652~exp=1733881252~hmac=d0ccdc3b99cec3fc637ff143f166b1a11dabc016501dd2de534c7a5e7b42bb74&w=1380")
-      no-repeat;
+    background: url("portfolio-bg.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
   }
@@ -246,12 +249,24 @@ body {
     max-width: 800px;
     margin: 160px 0px 90px;
   }
+
+  .side-by-side{
+    display: flex;
+    width: 1600px;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
   .slide{
+    flex: 1 1 calc(33.33% - 20px);
+    background-color: white;
     flex-grow: 1;
-    width: 8000px;
+    width: 1800px;
     border: 1px solid black;
     margin: 10px;
     padding: 30px;
+    box-sizing: border-box;
   }
 
   /* input field styles */
@@ -310,11 +325,12 @@ body {
   }
   
   /* footer styles */
-  
+
   .footer {
     background-color: #484848;
     height: 100px;
     padding-top: 10px;
+    width: 100vw;
   }
   
   .footer p {
@@ -336,3 +352,116 @@ body {
     -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
   }
+
+#typed-h1 {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #FF6363;
+    animation: typing 2.5s steps(30, end), blink 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  /* media queries */
+
+  @media screen and (max-width: 768px) {
+    .slide {
+      flex: 1 1 calc(50% - 20px); /* 2 slides per row */
+    }
+    .fa-bars {
+      display: block !important; 
+    }
+    .header-links {
+      display: none; /* Hide the normal menu */
+      flex-direction: column; /* Stack links vertically */
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: white;
+      width: 100%;
+    }
+    
+    .header-links.show {
+      display: flex;
+    }
+    
+    .header-links li {
+      float: none;
+      text-align: center;
+      padding: 10px 0;
+    }
+  
+    /* Content adjustments */
+    .section {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .side-by-side {
+      flex-direction: column; /* Stack project slides vertically */
+    }
+  
+    .slide {
+      width: 100%;
+      margin: 10px 0;
+    }
+  
+    .content-slide {
+      max-width: 100%;
+      margin: 20px auto;
+    }
+  
+    /* Skillbars */
+    .skillbar-title span, .skillbar .skillbar-bar {
+      font-size: 12px;
+    }
+  }
+  
+  
+  /* Mobile View: 1 slide per row */
+  @media screen and (max-width: 480px) {
+    .slide {
+      flex: 1 1 100%; /* 1 slide per row */
+    }
+  
+    .footer p {
+      font-size: 12px; /* Adjust text size for smaller screens */
+    }
+  }
+/* Font size adjustments for smaller screens */
+  @media screen and (max-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  
+    p {
+      font-size: 12px;
+    }
+  }
+  /* Tablet devices - between 768px and 1024px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .header-links li {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  .side-by-side {
+    gap: 20px;
+  }
+
+  .slide {
+    flex: 1 1 calc(50% - 20px); /* Show two columns */
+  }
+}
