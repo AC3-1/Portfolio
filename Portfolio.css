@@ -7,6 +7,8 @@ html {
 body {
   background-color: #c1dfc7;
   font-family: "Playfair Display", sans-serif !important;
+  padding: 0px;
+  margin: 0px;
 }
 
 ul {
@@ -30,6 +32,15 @@ p {
 img {
   max-width: 100%;
   height: auto;
+}
+
+a img {
+  transition: opacity 0.3s ease;
+}
+
+a img:hover {
+  opacity: 0.8; 
+  cursor: pointer; 
 }
 
 .section {
@@ -149,6 +160,10 @@ img {
   color: #ff6363;
 }
 
+#LPU{
+  mix-blend-mode: multiply;
+}
+
 /* Skill bars */
 
 .container-skillbar {
@@ -229,6 +244,7 @@ img {
 
 .side-by-side {
   display: flex;
+  flex-grow: 1;
   width: 1600px;
   flex-wrap: nowrap;
   gap: 10px;
@@ -236,14 +252,38 @@ img {
 }
 
 .slide {
-  flex: 1 1 calc(33.33% - 20px);
+  flex: 1 1 calc(88.88% - 20px);
   background-color: white;
+  border: 1px solid #ddd;
   flex-grow: 1;
   width: 1800px;
   border: 1px solid black;
+  border-radius: 8px;
   margin: 10px;
   padding: 30px;
   box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.slide h3 {
+  font-size: 1.5rem; /* Heading size */
+  color: #333; /* Darker text */
+  margin-bottom: 10px; /* Space below heading */
+  text-align: center; /* Center headings */
+}
+
+.slide p {
+  font-size: 1rem; /* Regular text size */
+  color: #555; /* Slightly lighter text */
+  line-height: 1.6; /* Better text spacing */
+  margin-bottom: 15px; /* Space below paragraph */
+  text-align: center;
 }
 
 /* Input field styles */
@@ -275,24 +315,30 @@ label {
 }
 
 #submit {
+  display: inline-block;
   outline: none;
   padding: 12px;
   min-width: 200px;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 2px solid #ff6363;
   text-align: center;
   font-size: 1em;
-  color: #ff6363;
-  background-color: white;
+  color: #ffffff;
+  background-color: #FF6363;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 #submit:hover {
-  background-color: #ff6363;
-  color: white;
+  background-color: white;
+  color: #ff6363;
   transition: all 0.3s ease-out;
+}
+
+#submit a{
+  color: rgb(100, 5, 5);
 }
 
 /* Footer styles */
@@ -301,6 +347,7 @@ label {
   background-color: #484848;
   height: 100px;
   padding-top: 10px;
+  padding-left: 0px;
   width: 100vw;
 }
 
@@ -311,12 +358,15 @@ label {
 }
 
 .social-links a {
-  color: white;
+  color: #FF6363;
   padding: 0 5px;
+  font-size: 39px;
+	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .social-links a:hover {
-  color: #ff6363;
+  color: #ffffff;
   transition: all 0.2s ease-in-out;
 }
 
@@ -327,7 +377,7 @@ label {
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid #FF6363;
-  animation: typing 2.5s steps(30, end), blink 0.75s step-end infinite;
+  animation: typing 1s steps(30, end), blink 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -409,5 +459,20 @@ label {
 
   #typed-h1 {
     font-size: 1.5em;
+  }
+}
+@media (min-width: 100px) and (max-width: 400px) {
+  .content {
+    max-width: 300px; /* Limits content width for very small screens */
+  }
+
+  .aboutme h1 {
+    font-size: 28px; /* Reduces heading size for smaller devices */
+  }
+}
+@media (min-width: 501px) and (max-width: 1024px) {
+  /* Custom styles for tablets */
+  .content {
+    max-width: 700px;
   }
 }
