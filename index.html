@@ -1,5 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel= "stylesheet" type="text/css" href="Portfolio.css">
+</head>
 <body>
-    <link rel= "stylesheet" type="text/css" href="Portfolio.css">
     <!-- navbar header -->
     <div class="nav-header">
         <div class="nav-brand">
@@ -23,7 +29,7 @@
   
       <div class="section aboutme" data-anchor="aboutme">
         <div class="opaque-bg animated fadeInDown">
-          <h1 id="typed-h1" style="color:rgb(218, 18, 18)"><span style="color:#FF6363">&lt;</span>ANDREI<span style="color:#FF6363"> / </span>ANCHETA<span style="color:#FF6363">&gt;</span></h1>
+          <h1 id="typed-h1" style="color:rgb(218, 18, 18)"><span style="color:#f1adad">&lt;</span> ANDREI  ANCHETA <span style="color:#f1adad">&gt;</span></h1>
         </div>
       </div>
       <!-- end section -->
@@ -33,12 +39,20 @@
       <div class="section" data-anchor="skills">
         <div class="content">
           <h1>ABOUT ME</h1>
-          <p>Hi, I'm Andrei Ancheta! I'm a Computer Science Student in Lyceum of the Philippines University,
+          <p>Hi, I'm Andrei Ancheta! I'm a College Student in Computer Science,
             My journey in web development has been fueled by a desire to bring ideas to life.
             I’m always eager to learn new skills and technologies to stay at the cutting edge of the ever-evolving digital landscape.
           </p>
-  
+        </br>
+          <h1>EDUCATION</h1>
+          <p>Bachelor of Science in Computer Science</p>
+          <p>Lyceum of the Philippines University</p>
+          <p>2022 - Present</p>
+          <h2>Logo here</h2>
+
+      </br>
           <div class="container-skillbar">
+            <h1>PROGRAMMING LANGUAGES</h1>
             <div class="skillbar clearfix" data-percent="61%">
                 <div class="skillbar-title" style="background: #ffe974;"><span>Python</span></div>
                 <div class="skillbar-bar" style="background: #ffe974;"></div>
@@ -77,6 +91,7 @@
   
       <div class="section" data-anchor="projects">
         <div class="content-slide">
+          <h1>PROJECTS</h1>
           <div class="slide">
             <h1>To-Do List</h1>
             <iframe src="to-dolist.html" width="1000" height="500" frameborder="0"></iframe>
@@ -87,13 +102,17 @@
             <iframe src="http://localhost/Ancheta/" width="1000" height="700" frameborder="0"></iframe>
             <p>Description</p>
           </div>
-          <div class="slide">
-            <h1>Project 3</h1>
-            <p>Description</p>
-          </div>
-          <div class="slide">
-            <h1>Project 4</h1>
-            <p>Description</p>
+          <div class="side-by-side">
+            <div class="slide">
+              <h1>Calcuator</h1>
+              <img src="project-3.png" width="500" height="500">
+              <p>Description</p>
+            </div>
+            <div class="slide">
+              <h1>Online Voting System</h1>
+              <img src="project-4.png" width="700" height="500">
+              <p>Description</p>
+            </div>
           </div>
           <div class="slide">
             <h1>Project 5</h1>
@@ -169,41 +188,36 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Skill bar animations
         const skillbars = document.querySelectorAll(".skillbar");
         skillbars.forEach(skillbar => {
           const percentage = skillbar.getAttribute("data-percent");
           const skillbarInner = skillbar.querySelector(".skillbar-bar");
-          // Animate the width of the skill bar
           skillbarInner.style.width = percentage;
-          // Make the animation visible
           skillbar.classList.add("animated");
         });
-        
-      document.addEventListener("DOMContentLoaded", function () {
-        const options = {
-          strings: [
-            "<span style='color:#FF6363'>&lt;</span>ANDREI<span style='color:#FF6363'> / </span>ANCHETA<span style='color:#FF6363'>&gt;</span>"
-          ], // Entire H1 content as a single string
-          typeSpeed: 50, // Typing speed in milliseconds
-          backSpeed: 30, // Backspacing speed
-          loop: false, // Disable looping
-          showCursor: true, // Show blinking cursor
-          cursorChar: "|", // Cursor character
-        };
 
-        new Typed("#typed-h1", options);
-      });
-        // Add smooth scroll for navbar links
+        // Typing animation setup
+        const typedElement = document.querySelector("#typed-h1");
+
+        // Apply the typing effect only once
+        if (!typedElement.hasAttribute("data-typed")) {
+          typedElement.setAttribute("data-typed", "true");
+          // Add the CSS animation class
+          typedElement.classList.add("typing");
+        }
+
+        // Smooth scrolling for navbar links
         const navLinks = document.querySelectorAll('.header-links a');
         navLinks.forEach(link => {
-          link.addEventListener('click', function(e) {
+          link.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetAnchor = this.getAttribute('href').substring(1);
+            const targetAnchor = this.getAttribute("href").substring(1);
             const targetElement = document.querySelector(`[data-anchor="${targetAnchor}"]`);
             if (targetElement) {
               window.scrollTo({
                 top: targetElement.offsetTop,
-                behavior: 'smooth'
+                behavior: "smooth",
               });
             }
           });
@@ -211,3 +225,4 @@
       });
     </script>
   </body>
+  </html>
