@@ -393,7 +393,7 @@ label {
 
 @media screen and (max-width: 768px) {
   .slide {
-    flex: 1 1 calc(50% - 20px); /* 2 slides per row */
+    flex: 1 1 calc(30% - 20px); /* 2 slides per row */
   }
 
   .fa-bars {
