@@ -394,6 +394,7 @@ label {
 @media screen and (max-width: 768px) {
   .slide {
     flex: 1 1 calc(20% - 20px); 
+	  flex-direction: column;
   }
 
   .fa-bars {
