@@ -392,10 +392,16 @@ label {
 /* Media queries */
 
 @media screen and (max-width: 768px) {
+.side-by-side{
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 10px;
+}
   .slide {
-    flex: 1 1 calc(30% - 20px); /* 2 slides per row */
+	  width: 100%;
+	  margin: 10px 0;
   }
-
+	
   .fa-bars {
     display: block !important;
   }
